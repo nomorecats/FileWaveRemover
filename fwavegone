@@ -1,0 +1,40 @@
+#!/bin/bash
+
+echo Starting Filewave remove please wait
+echo By executing or otherwise using this program the end user accepts all responsibility 
+echo towards the results of this program and or consequences.  
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo rm -rf /usr/local/sbin/FileWave.app/
+sudo rm -rf /Library/Frameworks/FileWaveCore.framework/
+sudo rm -rf /Library/Application\ Support/FileWave/
+sudo rm -rf /private/var/FileWave/custom.ini
+sudo rm -rf /usr/local/munki/
+sudo rm -rf /usr/local/filewave/
+sudo rm -rf /Library/Applications/Managed\ Software\ Center.app/
+sudo rm -rf /Users/$USER/Library/Applications/FileWave\ Kiosk.app/
+sudo rm -rf /Library/Applications/FileWave\ Kiosk.app/
+sudo rm -rf /Users/$USER/Library/Applications/Managed\ Software\ Center.app/
+sudo rm -rf /private/var/db/receipts/com.filewave.fwcld.pkg.bom
+sudo rm -rf /private/var/db/receipts/com.filewave.fwcld.pkg.plist
+sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.bom
+sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.plist
+sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.pkg.bom
+sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.pkg.plist
+sudo rm -rf /Library/Preferences/com.filewave.fwxserver.plist
+sudo rm -rf /Library/LaunchAgents/com.filewave.fwGUI.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwcld.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-admin.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-apache.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-ldap.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
+sudo rm -rf /Library/LaunchDaemons/com.filewave.postgresql.plist
+
+echo enter FWGui process id PID to kill can be found in activity monitor app, then
+echo restart computer after complete
+
+read id
+
+sudo kill -9 $id 
+
