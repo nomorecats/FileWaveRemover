@@ -3,7 +3,6 @@
 echo Starting Filewave remove please wait
 echo By executing or otherwise using this program the end user accepts all responsibility 
 echo towards the results of this program and or consequences.  
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 sudo rm -rf /usr/local/sbin/FileWave.app/
 sudo rm -rf /Library/Frameworks/FileWaveCore.framework/
@@ -31,10 +30,6 @@ sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.postgresql.plist
 
-echo enter FWGui process id PID to kill can be found in activity monitor app, then
-echo restart computer after complete
+filewavePID="$(ps -ef | grep fwGuI | awk '{print $2}'
 
-read id
-
-sudo kill -9 $id 
-
+sudo kill -9 $filewavePID
