@@ -1,10 +1,8 @@
 #!/bin/bash
 
 echo Starting Filewave remove please wait
-echo By executing or otherwise using this program the end user accepts all responsibility 
-echo towards the results of this program and or consequences.  
-echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+echo By executing or otherwise using this program the end user accepts all responsibility for the results of this program and or consequences.
+printf "\n"
 sudo rm -rf /usr/local/sbin/FileWave.app/
 sudo rm -rf /Library/Frameworks/FileWaveCore.framework/
 sudo rm -rf /Library/Application\ Support/FileWave/
@@ -30,11 +28,13 @@ sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-ldap.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.postgresql.plist
-
-echo enter FWGui process id PID to kill can be found in activity monitor app, then
-echo restart computer after complete
-
-read id
-
-sudo kill -9 $id 
-
+sudo rm -rf /Library/Preferences/com.filewave.WinClient.plist
+filewavePID="$(sudo ps aux | grep "[f]wGUI" | awk '{print $2}')"
+if [[ $filewavePID == "" ]] ;
+        then
+                echo "fwGUI not running!"
+                exit 0
+        else
+sudo kill -9 $filewavePID
+fi
+exit 0
