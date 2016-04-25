@@ -30,8 +30,6 @@ sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
 sudo rm -rf /Library/LaunchDaemons/com.filewave.postgresql.plist
 sudo rm -rf /Library/Preferences/com.filewave.WinClient.plist
-sudo rm -rf /Library/LaunchAgents/com.filewave.fwGUI.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwcld.plist
 
 filewavePID="$(sudo ps aux | grep "[f]wGUI" | awk '{print $2}')"
 
