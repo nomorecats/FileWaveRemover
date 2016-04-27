@@ -1,34 +1,34 @@
 #!/bin/bash
-
-echo Starting Filewave remove please wait
-echo By executing or otherwise using this program the end user accepts all responsibility for the results of this program and or consequences.
+echo "The creators of this script are not responsible for what you use it for!"
+echo "Starting FileWave removal, please wait..."
 printf "\n"
-sudo rm -rf /usr/local/sbin/FileWave.app/
-sudo rm -rf /Library/Frameworks/FileWaveCore.framework/
-sudo rm -rf /Library/Application\ Support/FileWave/
-sudo rm -rf /private/var/FileWave/custom.ini
-sudo rm -rf /usr/local/munki/
-sudo rm -rf /usr/local/filewave/
-sudo rm -rf /Library/Applications/Managed\ Software\ Center.app/
-sudo rm -rf /Users/$USER/Library/Applications/FileWave\ Kiosk.app/
-sudo rm -rf /Library/Applications/FileWave\ Kiosk.app/
-sudo rm -rf /Users/$USER/Library/Applications/Managed\ Software\ Center.app/
-sudo rm -rf /private/var/db/receipts/com.filewave.fwcld.pkg.bom
-sudo rm -rf /private/var/db/receipts/com.filewave.fwcld.pkg.plist
-sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.bom
-sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.plist
-sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.pkg.bom
-sudo rm -rf /private/var/db/receipts/com.filewave.fwxserver.pkg.plist
-sudo rm -rf /Library/Preferences/com.filewave.fwxserver.plist
-sudo rm -rf /Library/LaunchAgents/com.filewave.fwGUI.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwcld.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-admin.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-apache.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-ldap.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
-sudo rm -rf /Library/LaunchDaemons/com.filewave.postgresql.plist
-sudo rm -rf /Library/Preferences/com.filewave.WinClient.plist
+sudo rm -rfv /usr/local/sbin/FileWave.app/
+sudo rm -rfv /Library/Frameworks/FileWaveCore.framework/
+sudo rm -rfv /Library/Application\ Support/FileWave/
+sudo rm -rfv /private/var/FileWave/custom.ini
+sudo rm -rfv /usr/local/munki/
+sudo rm -rfv /usr/local/filewave/
+sudo rm -rfv /Library/Applications/Managed\ Software\ Center.app/
+sudo rm -rfv /Users/$USER/Library/Applications/FileWave\ Kiosk.app/
+sudo rm -rfv /Library/Applications/FileWave\ Kiosk.app/
+sudo rm -rfv /Users/$USER/Library/Applications/Managed\ Software\ Center.app/
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwcld.pkg.bom
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwcld.pkg.plist
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.bom
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwxserver.mdm.pkg.plist
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwxserver.pkg.bom
+sudo rm -rfv /private/var/db/receipts/com.filewave.fwxserver.pkg.plist
+sudo rm -rfv /Library/Preferences/com.filewave.fwxserver.plist
+sudo rm -rfv /Library/LaunchAgents/com.filewave.fwGUI.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwcld.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-admin.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-apache.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-ldap.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-scheduler.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
+sudo rm -rfv /Library/LaunchDaemons/com.filewave.postgresql.plist
+sudo rm -rfv /Library/Preferences/com.filewave.WinClient.plist
+sudo rm -rfv /Applications/Managed\ Software\ Center.app
 filewavePID="$(sudo ps aux | grep "[f]wGUI" | awk '{print $2}')"
 if [[ $filewavePID == "" ]] ;
         then
