@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable"
 echo "Press return to accept"
 read check
