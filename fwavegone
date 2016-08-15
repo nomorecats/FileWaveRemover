@@ -72,6 +72,7 @@ sudo rm -rfv /usr/local/etc/FileWaveInstallerLogfiles/
 sudo rm -rfv /Users/$USER/Library/Application\ Support/FileWave
 sudo rm -rfv /private/var/FileWave/
 sudo rm -rfv /Applications/FileWave\ Kiosk.app/
+sudo rm -rfv /Library/LaunchDaemons/iboss.register.plist
 echo "Removing hidden backdoor... yikes"
 sleep 2
 sudo dscl . -delete /Users/uaschools
