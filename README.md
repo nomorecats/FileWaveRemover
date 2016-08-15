@@ -8,10 +8,8 @@ Download file and Unzip on desktop (FOLDER MUST BE ON DESKTOP)
 Open Terminal and enter the folowing commands
 
 cd Desktop/FileWaveRemover-master/
-(click enter)
 
 ./fwavegone
-(click enter)
 
 Follow on screen prompts
 
