@@ -2,9 +2,22 @@
 
 echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable"
 echo "Press return to accept"
+echo "Also please create a backup admin account before starting, this can be done in the users and groups in system pref"
 read check
-echo "Starting FileWave removal, please wait..."
-sleep 2
+echo "Enter y to accept terms and start or n to end"
+
+if [[ $check = "y" ]] 
+        then
+                echo "Starting FileWave removal, please wait..."
+        elif [ $check = "n" ]] 
+                then 
+                        echo "CANCELED"
+                        exit 0
+                else
+                        echo "Not a valid option, ending program"
+                        exit 0
+fi
+sleep 1
 printf "\n"
 sudo rm -rfv /usr/local/sbin/FileWave.app/
 sudo rm -rfv /Library/Frameworks/FileWaveCore.framework/
@@ -70,7 +83,7 @@ snumber=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
 sudo dsconfigad -force -remove -u $snumber -p $snumber
 adcheck=$(sudo dsconfigad -show)
 
-if [[ $adcheck == "" ]] ;
+if [[ $adcheck == "" ]] 
         then
                 echo "AD has been unbound"
         else
@@ -81,14 +94,14 @@ if [[ $adcheck == "" ]] ;
                 sudo dsconfigad -force -remove -u $USER -p $passw
 fi
 adcheck2=$(sudo dsconfigad -show)
-if [[ $adcheck == "" ]] ;
+if [[ $adcheck2 == "" ]] ;
         then
-                echo "AD has been unbound 
+                echo "AD has been unbound" 
         else
                 echo "."
                 echo "ERROR: AD unbind attept 2 has failed"
                 echo "you must manually unbind"
-                echo "To unbind the AD go to Settings, Users and groups, Login Options, Click edit on network account server"
+                echo "To unbind the AD go to Sytem Preferenced, Users and groups, Login Options, Click edit on network account server"
                 echo "Click on the AD with green indicator, remove it by clicking the minus, when it prompts for username and password"
                 echo "enter $snumber as the username and password"
                 echo "Hit enter to continue"
