@@ -1,6 +1,9 @@
 #!/bin/bash
-echo "The creators of this script are not responsible for what you use it for!"
+echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable"
+echo "Press return to accept"
+read check
 echo "Starting FileWave removal, please wait..."
+sleep 2
 printf "\n"
 sudo rm -rfv /usr/local/sbin/FileWave.app/
 sudo rm -rfv /Library/Frameworks/FileWaveCore.framework/
@@ -29,6 +32,68 @@ sudo rm -rfv /Library/LaunchDaemons/com.filewave.fwxserver-server.plist
 sudo rm -rfv /Library/LaunchDaemons/com.filewave.postgresql.plist
 sudo rm -rfv /Library/Preferences/com.filewave.WinClient.plist
 sudo rm -rfv /Applications/Managed\ Software\ Center.app
+sudo rm -rfv /Library/LaunchDaemons/org.uaschools.removeUAsetupnetwork.plist
+sudo rm -rfv /Library/LaunchDaemons/org.uaschools.studentadmin.plist
+sudo rm -rfv /private/var/db/receipts/com.github.makeprofilepkg.UASchoolsWireless.bom
+sudo rm -rfv /private/var/db/receipts/com.github.makeprofilepkg.UASchoolsWireless.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ibossClient.iboss.register-1.pkg.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ibossClient.iboss.register-1.pkg.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ibossClient.iboss.register.pkg.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ibossClient.iboss.register.pkg.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.adbindUA.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.adbindUA.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.removeUAsetup.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.removeUAsetup.plist
+sudo rm -rfv /usr/local/share/UASchoolsWireless.mobileconfig
+sudo rm -rfv /Library/Scripts/UAScripts
+sudo rm -rfv "/Users/$USER/Library/Preferences/com.filewave-kiosk.FileWave Kiosk.plist"
+sudo rm -rfv /Library/LaunchAgents/com.filewave.fwVNCServer.plist
+sudo rm -rfv /Library/LaunchAgents/com.filewave.fwGUI.plist
+sudo rm -rfv /Library/LaunchAgents/com.filewave.fwVNCServer.plist.bak
+sudo rm -rfv /Library/FW_scripts
+sudo rm -rfv "/usr/local/sbin/Client Assistant.app"
+sudo rm -rfv /private/var/FileWave/
+sudo rm -rfv /usr/local/etc/FileWaveInstallers/
+sudo rm -rfv /usr/local/etc/FileWaveInstallerLogfiles/
+sudo rm -rfv /Users/$USER/Library/Application\ Support/FileWave
+sudo rm -rfv /private/var/FileWave/
+sudo rm -rfv /Applications/FileWave\ Kiosk.app/
+echo "Removing hidden backdoor... yikes"
+sleep 2
+sudo dscl . -delete /Users/uaschools
+sudo rm -rfv /Users/uaschools/
+echo "We are now going to remove the Management profile, this will also remove your current network, you will need to sign in to another"
+echo "Enter y"
+sudo /usr/bin/profiles -D
+snumber=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
+sudo dsconfigad -force -remove -u $snumber -p $snumber
+adcheck=$(sudo dsconfigad -show)
+
+if [[ $adcheck == "" ]] ;
+        then
+                echo "AD has been unbound"
+        else
+                echo "."
+                echo "ERROR: AD unbind attept 1 has failed"
+                echo "Please enter your password, this will be in plain text"
+                read passw
+                sudo dsconfigad -force -remove -u $USER -p $passw
+fi
+adcheck2=$(sudo dsconfigad -show)
+if [[ $adcheck == "" ]] ;
+        then
+                echo "AD has been unbound 
+        else
+                echo "."
+                echo "ERROR: AD unbind attept 2 has failed"
+                echo "you must manually unbind"
+                echo "To unbind the AD go to Settings, Users and groups, Login Options, Click edit on network account server"
+                echo "Click on the AD with green indicator, remove it by clicking the minus, when it prompts for username and password"
+                echo "enter $snumber as the username and password"
+                echo "Hit enter to continue"
+                read hey
+fi
+
 filewavePID="$(sudo ps aux | grep "[f]wGUI" | awk '{print $2}')"
 if [[ $filewavePID == "" ]] ;
         then
