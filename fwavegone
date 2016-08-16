@@ -1,20 +1,19 @@
 #!/bin/bash
 
-echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable"
-echo "Press return to accept"
-echo "Also please create a backup admin account before starting, this can be done in the users and groups in system pref"
+echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable for any reason including the content."
+echo "----------------------------------------------------------------------------"
+echo "Enter y to accept terms and start or n to end, press enter after selection"
 read check
-echo "Enter y to accept terms and start or n to end"
 
 if [[ $check = "y" ]] 
         then
                 echo "Starting FileWave removal, please wait..."
-        elif [ $check = "n" ]] 
+        elif [[ $check = "n" ]] 
                 then 
                         echo "CANCELED"
                         exit 0
                 else
-                        echo "Not a valid option, ending program"
+                        echo "INVALID OPTION ENDING PROGRAM"
                         exit 0
 fi
 sleep 1
