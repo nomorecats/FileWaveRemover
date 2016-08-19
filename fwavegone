@@ -74,6 +74,10 @@ sudo rm -rfv /Applications/FileWave\ Kiosk.app/
 sudo rm -rfv /Library/LaunchDaemons/iboss.register.plist
 sudo rm -rfv /private/var/root/Library/Preferences/com.filewave.client.FileWave\ Client.plist
 sudo rm -rfv /Library/LaunchDaemons/org.uaschools.studentadmin.plist
+sudo rm -rfv "/private/var/root/Library/Application Support/FileWave"
+sudo chown $USER /private/var/FileWave/
+sudo mv /private/var/FileWave/ noo
+sudo rm -rfv noo
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwGUI.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist.bak
