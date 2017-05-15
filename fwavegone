@@ -78,6 +78,7 @@ sudo rm -rfv "/private/var/root/Library/Application Support/FileWave"
 sudo chown $USER /private/var/FileWave/
 sudo mv /private/var/FileWave/ noo
 sudo rm -rfv noo
+sudo rm -rf "/Library/Managed Preferences"
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwGUI.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist.bak
