@@ -86,13 +86,13 @@ echo "Removing hidden backdoor... yikes"
 #NEW ADDITIONS 2017
 
 
-sudo rm /usr/local/bin/fwcontrol
-sudo rm /usr/local/bin/mobilefilter
-sudo rm /usr/local/bin/useragent
-sudo rm /Library/LaunchDaemons/com.lightspeedsystems.mobilefilter.plist
-sudo rm /Library/LaunchDaemons/com.lightspeedsystems.useragent.plist
-sudo rm /private/var/db/receipts/com.lightspeedsystems.mobilefilter.bom
-sudo rm /private/var/db/receipts/com.lightspeedsystems.mobilefilter.plist
+sudo rm -rfv /usr/local/bin/fwcontrol
+sudo rm -rfv /usr/local/bin/mobilefilter
+sudo rm -rfv /usr/local/bin/useragent
+sudo rm -rfv /Library/LaunchDaemons/com.lightspeedsystems.mobilefilter.plist
+sudo rm -rfv /Library/LaunchDaemons/com.lightspeedsystems.useragent.plist
+sudo rm -rfv /private/var/db/receipts/com.lightspeedsystems.mobilefilter.bom
+sudo rm -rfv /private/var/db/receipts/com.lightspeedsystems.mobilefilter.plist
 sudo rm /private/var/db/receipts/com.lightspeedsystems.useragent.bom
 sudo rm /private/var/db/receipts/com.lightspeedsystems.useragent.plist
 sudo rm -rf /private/var/db/ConfigurationProfiles/Store/
@@ -171,3 +171,4 @@ if [[ $filewavePID == "" ]] ;
 sudo kill -9 $filewavePID
 fi
 exit 0
+echo "Please restart your computer"
