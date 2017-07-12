@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable for any reason including the content.
 echo "The user running this script accepts all responsibility of the actions. The creator of the script cannot be held liable for any reason including the content."
 echo "----------------------------------------------------------------------------"
 echo "Enter y to accept terms and start or n to end, press enter after selection"
@@ -83,6 +83,49 @@ sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwGUI.plist
 sudo launchctl unload /Library/LaunchAgents/com.filewave.fwVNCServer.plist.bak
 echo "Removing hidden backdoor... yikes"
+#NEW ADDITIONS 2017
+
+
+sudo rm /usr/local/bin/fwcontrol
+sudo rm /usr/local/bin/mobilefilter
+sudo rm /usr/local/bin/useragent
+sudo rm /Library/LaunchDaemons/com.lightspeedsystems.mobilefilter.plist
+sudo rm /Library/LaunchDaemons/com.lightspeedsystems.useragent.plist
+sudo rm /private/var/db/receipts/com.lightspeedsystems.mobilefilter.bom
+sudo rm /private/var/db/receipts/com.lightspeedsystems.mobilefilter.plist
+sudo rm /private/var/db/receipts/com.lightspeedsystems.useragent.bom
+sudo rm /private/var/db/receipts/com.lightspeedsystems.useragent.plist
+sudo rm -rf /private/var/db/ConfigurationProfiles/Store/
+sudo rm /Library/lssys/mobilefilter.xml
+sudo rm -rf /System/Library/Extensions/MobileFilterKext.kext
+
+sudo rm -rfv /Library/LaunchDaemons/org.uaschools.RemoveGuestSSIDs.plist
+sudo rm -rfv /Library/LaunchDaemons/org.uaschools.TestingCompliance.plist
+sudo rm -rfv /Library/LaunchDaemons/org.uaschools.TestingCompliance2.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.AIRtestingSL.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.AIRtestingSL.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.chrome.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.chrome.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.firmwaresettings.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.firmwaresettings.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.mdmenrollment.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.mdmenrollment.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.munkiConfigMacPros.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.munkiConfigMacPros.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.ACTTESTING201617.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.ACTTESTING201617.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.AIRTESTING201617.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.pkg.AIRTESTING201617.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.time.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.time.plist
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ua_macbasics.bom
+sudo rm -rfv /private/var/db/receipts/org.uaschools.ua_macbasics.plist
+sudo rm -rfv /Scripts/UAScripts/receipts/org.uaschools.time
+sudo rm -rfv /Library/Preferences/com.filewave.Client.plist
+sudo rm -rfv /Library/Preferences/com.filewave.plist
+sudo rm -rfv /private/var/FileWave
+
+# END 2017
 sleep 2
 sudo dscl . -delete /Users/uaschools
 sudo rm -rfv /Users/uaschools/
@@ -91,6 +134,7 @@ echo "Enter y"
 sudo /usr/bin/profiles -D
 snumber=$(system_profiler SPHardwareDataType | awk '/Serial/ {print $4}')
 sudo dsconfigad -force -remove -u $snumber -p $snumber
+sudo pkill mobilefilter
 adcheck=$(sudo dsconfigad -show)
 
 if [[ $adcheck == "" ]] 
