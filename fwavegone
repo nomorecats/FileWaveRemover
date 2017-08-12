@@ -98,6 +98,10 @@ sudo rm /private/var/db/receipts/com.lightspeedsystems.useragent.plist
 sudo rm -rf /private/var/db/ConfigurationProfiles/Store/
 sudo rm /Library/lssys/mobilefilter.xml
 sudo rm -rf /System/Library/Extensions/MobileFilterKext.kext
+suod rm -rfv "/Users/$USER/Acceptable Use Policy"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText ""
+
+# END 2017
 
 sudo rm -rfv /Library/LaunchDaemons/org.uaschools.RemoveGuestSSIDs.plist
 sudo rm -rfv /Library/LaunchDaemons/org.uaschools.TestingCompliance.plist
@@ -154,8 +158,9 @@ if [[ $adcheck2 == "" ]] ;
         else
                 echo "."
                 echo "ERROR: AD unbind attept 2 has failed"
+                echo "WARNING WARNING WARNING"
                 echo "you must manually unbind"
-                echo "To unbind the AD go to Sytem Preferenced, Users and groups, Login Options, Click edit on network account server"
+                echo "To unbind the AD go to Sytem Preferences, Users and groups, Login Options, Click edit on network account server"
                 echo "Click on the AD with green indicator, remove it by clicking the minus, when it prompts for username and password"
                 echo "enter $snumber as the username and password"
                 echo "Hit enter to continue"
